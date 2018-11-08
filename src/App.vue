@@ -15,7 +15,7 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar dark class="deep-orange darken-3">
+    <v-toolbar dark class="primary">
       <v-toolbar-side-icon 
         @click.native.stop="sideNav = !sideNav"
         class="hidden-sm-and-up" />
