@@ -37,20 +37,11 @@
 
 <script>
 export default {
-  data: () => ({
-    meetups: [
-      {
-        imageUrl: 'http://burritomadre.com/wp-content/uploads/2017/img/BM-terazije-2.jpg',
-        id: 'blaldal',
-        title: 'Burito Madre'
-      },
-      {
-        imageUrl: 'https://melmagazine.com/wp-content/uploads/2018/08/18bHwEce1IinWYd5PXH_UaQ.jpeg',
-        id: 'blaldadal',
-        title: 'Asia Food'
-      }
-    ]
-  }),
+  computed: {
+    meetups () {
+      return this.$store.getters.featuredMeetups
+    }
+  },
   methods: {
     onLoadMeetup (id) {
       this.$router.push('/meetups/' + id)

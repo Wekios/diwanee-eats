@@ -5,14 +5,14 @@
         <v-flex xs12>
           <v-card>
             <v-card-title>
-              <h5 class="primary--text">My Restaraunt</h5>
+              <h4 class="primary--text"> {{ meetup.title }} </h4>
             </v-card-title>
             <v-img
-              src="http://burritomadre.com/wp-content/uploads/2017/img/BM-terazije-2.jpg"
+              :src="meetup.imageUrl"
               height="400px">
             </v-img>
             <v-card-text>
-              <div class="secondary--text">8th of october 2018 - Where it takes place</div>
+              <div class="secondary--text"> {{ meetup.date }} - Where it takes place</div>
               <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur ducimus corrupti eveniet, nihil vel in alias! Libero officiis laborum tempore.</div>
             </v-card-text>
             <v-card-actions>
@@ -27,5 +27,12 @@
 </template>
 
 <script>
-export default {}
+export default {
+  props: ['id'],
+  computed: {
+    meetup () {
+      return this.$store.getters.loadedMeetup(this.id)
+    }
+  }
+}
 </script>

@@ -1,25 +1,25 @@
 <template>
   <v-container>
-    <v-layout row wrap>
+    <v-layout row wrap  v-for="meetup in meetups" :key="meetup.id" class="mb-2">
       <v-flex xs12 sm10 md8 offset-sm1 offset-md2>
         <v-card class="accent">
           <v-container fluid>
             <v-layout row>
               <v-flex xs5 sm4 md3>
                 <v-img
-                  src="http://burritomadre.com/wp-content/uploads/2017/img/BM-terazije-2.jpg"
+                  :src="meetup.imageUrl"
                   height="125px">
                 </v-img>
               </v-flex>
               <v-flex xs7 sm8 md9>
                 <v-card-title primary-title>
                   <div>
-                    <h4 class="white--text mb-0">My Choice for meal</h4>
-                    <span>8th of october 2018</span>
+                    <h4 class="white--text mb-0"> {{ meetup.title }} </h4>
+                    <span> {{ meetup.date }} </span>
                   </div>
                 </v-card-title>
                 <v-card-actions>
-                  <v-btn flat to="/meetups/1">
+                  <v-btn flat :to="'/meetups/' + meetup.id">
                     <v-icon left>arrow_forward</v-icon>
                     View restaraunt
                   </v-btn>
@@ -34,5 +34,11 @@
 </template>
 
 <script>
-export default {}
+export default {
+  computed: {
+    meetups () {
+      return this.$store.getters.loadedMeetups
+    }
+  }
+}
 </script>
