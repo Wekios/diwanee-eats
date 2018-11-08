@@ -5,7 +5,6 @@
         <v-list-tile 
           v-for="item in menuItems" 
           :key="item.title"
-          router
           :to="item.link"
           >
           <v-list-tile-action>
@@ -17,7 +16,7 @@
     </v-navigation-drawer>
     <v-toolbar dark class="primary">
       <v-toolbar-side-icon 
-        @click.native.stop="sideNav = !sideNav"
+        @click.stop="sideNav = !sideNav"
         class="hidden-sm-and-up" />
       <v-toolbar-title>
         <router-link to="/" tag="span" style="cursor:pointer">Diwanee Eats</router-link>
@@ -27,7 +26,6 @@
         <v-btn flat 
           v-for="item in menuItems"
           :key="item.title"
-          router
           :to="item.link"
           >
           <v-icon left>{{ item.icon }}</v-icon>
