@@ -12,11 +12,12 @@
 
     <v-layout row wrap>
       <v-flex xs12>
-        <v-carousel>
+        <v-carousel style="cursor:pointer">
           <v-carousel-item
             v-for="(meetup) in meetups"
             :key="meetup.id"
-            :src="meetup.imageUrl">
+            :src="meetup.imageUrl"
+            @click="onLoadMeetup(meetup.id)">
             <div class="title">
               {{ meetup.title }}
             </div>
@@ -36,21 +37,26 @@
 
 <script>
 export default {
-    data: () => ({
-      meetups: [
-        { 
-          imageUrl: "http://burritomadre.com/wp-content/uploads/2017/img/BM-terazije-2.jpg", 
-          id: "blaldal", 
-          title: "Burito Madre" 
-        },
-        { 
-          imageUrl: "https://melmagazine.com/wp-content/uploads/2018/08/18bHwEce1IinWYd5PXH_UaQ.jpeg", 
-          id: "blaldadal", 
-          title: "Asia Food" 
-        },
-      ]
-    })
-};
+  data: () => ({
+    meetups: [
+      {
+        imageUrl: 'http://burritomadre.com/wp-content/uploads/2017/img/BM-terazije-2.jpg',
+        id: 'blaldal',
+        title: 'Burito Madre'
+      },
+      {
+        imageUrl: 'https://melmagazine.com/wp-content/uploads/2018/08/18bHwEce1IinWYd5PXH_UaQ.jpeg',
+        id: 'blaldadal',
+        title: 'Asia Food'
+      }
+    ]
+  }),
+  methods: {
+    onLoadMeetup (id) {
+      this.$router.push('/meetups/' + id)
+    }
+  }
+}
 </script>
 
 <style scoped>

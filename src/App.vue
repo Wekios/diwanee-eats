@@ -2,8 +2,8 @@
   <v-app id="inspire">
     <v-navigation-drawer v-model="sideNav" fixed app temporary>
       <v-list>
-        <v-list-tile 
-          v-for="item in menuItems" 
+        <v-list-tile
+          v-for="item in menuItems"
           :key="item.title"
           :to="item.link"
           >
@@ -15,7 +15,7 @@
       </v-list>
     </v-navigation-drawer>
     <v-toolbar dark class="primary">
-      <v-toolbar-side-icon 
+      <v-toolbar-side-icon
         @click.stop="sideNav = !sideNav"
         class="hidden-sm-and-up" />
       <v-toolbar-title>
@@ -23,7 +23,7 @@
       </v-toolbar-title>
       <v-spacer />
       <v-toolbar-items class="hidden-xs-only" >
-        <v-btn flat 
+        <v-btn flat
           v-for="item in menuItems"
           :key="item.title"
           :to="item.link"
@@ -44,15 +44,12 @@ export default {
   data: () => ({
     sideNav: false,
     menuItems: [
-      { icon: 'fastfood', title: "View Lunch Options", link: '/meetups' },
-      { icon: 'store', title: "Suggest place", link: '/meetup/new' },
-      { icon: 'person', title: "Profile", link: '/profile' },
-      { icon: 'face', title: "Sign up", link: '/signup' },
-      { icon: 'lock_open', title: "Sign in", link: '/signin' }
+      { icon: 'fastfood', title: 'View Lunch Options', link: '/meetups' },
+      { icon: 'store', title: 'Suggest place', link: '/meetup/new' },
+      { icon: 'person', title: 'Profile', link: '/profile' },
+      { icon: 'face', title: 'Sign up', link: '/signup' },
+      { icon: 'lock_open', title: 'Sign in', link: '/signin' }
     ]
   })
-};
+}
 </script>
-
-<style lang="scss" scoped>
-</style>
