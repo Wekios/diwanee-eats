@@ -9,7 +9,7 @@ export default new Vuex.Store({
       imageUrl: 'http://burritomadre.com/wp-content/uploads/2017/img/BM-terazije-2.jpg',
       id: 'buritou',
       title: 'Burito Madre',
-      date: '20018-11-8',
+      date: new Date(),
       location: 'Serbia',
       description: 'Odlican burito'
     },
@@ -17,7 +17,7 @@ export default new Vuex.Store({
       imageUrl: 'https://melmagazine.com/wp-content/uploads/2018/08/18bHwEce1IinWYd5PXH_UaQ.jpeg',
       id: 'kayru',
       title: 'Asia Food',
-      date: '20018-11-8',
+      date: new Date(),
       location: 'Serbia',
       description: 'Chi cong yu'
     }],
