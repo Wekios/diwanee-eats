@@ -9,21 +9,42 @@ export default new Vuex.Store({
       imageUrl: 'http://burritomadre.com/wp-content/uploads/2017/img/BM-terazije-2.jpg',
       id: 'buritou',
       title: 'Burito Madre',
-      date: '20018-11-8'
+      date: '20018-11-8',
+      location: 'Serbia',
+      description: 'Odlican burito'
     },
     {
       imageUrl: 'https://melmagazine.com/wp-content/uploads/2018/08/18bHwEce1IinWYd5PXH_UaQ.jpeg',
       id: 'kayru',
       title: 'Asia Food',
-      date: '20018-11-8'
+      date: '20018-11-8',
+      location: 'Serbia',
+      description: 'Chi cong yu'
     }],
     user: {
       id: 'alalakdlasm',
       registeredMeetups: ['blaldadal']
     }
   },
-  mutations: {},
-  actions: {},
+  mutations: {
+    createMeetup (state, payload) {
+      state.loadedMeetups.push(payload)
+    }
+  },
+  actions: {
+    createMeetup ({ commit }, payload) {
+      const meetup = {
+        title: payload.title,
+        location: payload.location,
+        imageUrl: payload.imageUrl,
+        description: payload.description,
+        date: payload.date,
+        id: 'kskakadioasjmio'
+      }
+      // Reach out to database and store it
+      commit('createMeetup', meetup)
+    }
+  },
   getters: {
     loadedMeetups (state) {
       return state.loadedMeetups.sort((meetupA, meetupB) => {
