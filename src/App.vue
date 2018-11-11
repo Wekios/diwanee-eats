@@ -42,14 +42,27 @@
 <script>
 export default {
   data: () => ({
-    sideNav: false,
-    menuItems: [
-      { icon: 'fastfood', title: 'View Lunch Options', link: '/meetups' },
-      { icon: 'store', title: 'Suggest place', link: '/meetup/new' },
-      { icon: 'person', title: 'Profile', link: '/profile' },
-      { icon: 'face', title: 'Sign up', link: '/signup' },
-      { icon: 'lock_open', title: 'Sign in', link: '/signin' }
-    ]
-  })
+    sideNav: false
+  }),
+  computed: {
+    menuItems () {
+      let menuItems = [
+        { icon: 'face', title: 'Sign up', link: '/signup' },
+        { icon: 'lock_open', title: 'Sign in', link: '/signin' }
+      ]
+      if (this.userIsAuthenticated) {
+        menuItems = [
+          { icon: 'fastfood', title: 'View Lunch Options', link: '/meetups' },
+          { icon: 'store', title: 'Suggest place', link: '/meetup/new' },
+          { icon: 'person', title: 'Profile', link: '/profile' }
+        ]
+      }
+      return menuItems
+    },
+    userIsAuthenticated () {
+      return this.$store.getters.user !== null &&
+             this.$store.getters.user !== undefined
+    }
+  }
 }
 </script>
