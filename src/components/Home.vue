@@ -10,7 +10,17 @@
       </v-flex>
     </v-layout>
 
-    <v-layout row wrap>
+    <v-layout>
+      <v-flex xs12 class="text-xs-center">
+        <v-progress-linear
+          v-if="loading"
+          :indeterminate="true"
+          :width="7"
+          :size="70"/>
+      </v-flex>
+    </v-layout>
+
+    <v-layout row wrap v-if="!loading">
       <v-flex xs12>
         <v-carousel style="cursor:pointer">
           <v-carousel-item
@@ -40,6 +50,9 @@ export default {
   computed: {
     meetups () {
       return this.$store.getters.featuredMeetups
+    },
+    loading () {
+      return this.$store.getters.loading
     }
   },
   methods: {

@@ -25,5 +25,6 @@ new Vue({
       projectId: 'diwanee-eats',
       storageBucket: ''
     })
+    this.$store.dispatch('loadMeetups')
   }
 }).$mount('#app')
