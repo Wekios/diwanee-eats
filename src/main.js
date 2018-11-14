@@ -2,7 +2,7 @@ import Vue from 'vue'
 import './plugins/vuetify'
 import App from './App.vue'
 import * as firebase from 'firebase'
-import router from './router'
+import router from './router/router'
 import store from './store/'
 import DateFilter from './filters/date'
 import AlertCmp from './components/Shared/Alert.vue'
@@ -24,6 +24,11 @@ new Vue({
       databaseURL: 'https://diwanee-eats.firebaseio.com',
       projectId: 'diwanee-eats',
       storageBucket: ''
+    })
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.$store.dispatch('autoSignIn', user)
+      }
     })
     this.$store.dispatch('loadMeetups')
   }

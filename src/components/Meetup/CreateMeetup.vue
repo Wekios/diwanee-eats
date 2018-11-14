@@ -53,29 +53,37 @@
                 required></v-text-field>
             </v-flex>
           </v-layout>
-          <v-layout row>
-            <v-flex xs12 sm6 offset3>
-              <h4>Choose a Date and Time</h4>
-            </v-flex>
-          </v-layout>
-          <v-layout row class="mb-2">
-            <v-flex xs12 sm6 offset-sm3>
-              <v-date-picker v-model="date"></v-date-picker>
-            </v-flex>
-          </v-layout>
-          <v-layout row>
-            <v-flex xs12 sm6 offset-sm3>
-              <v-time-picker v-model="time" format="24hr"></v-time-picker>
-            </v-flex>
-          </v-layout>
-          <v-layout row>
-            <v-flex xs12 sm6 offset-sm3>
-              <v-btn
-                class="primary"
-                :disabled="!formIsValid"
-                type="submit">Create Meetup</v-btn>
-            </v-flex>
-          </v-layout>
+
+          <div class="wrapper text-xs-center">
+
+            <v-layout row>
+              <v-flex>
+                <h4>Choose a Date and Time</h4>
+              </v-flex>
+            </v-layout>
+
+            <v-layout row class="mb-2">
+              <v-flex xs12 sm6 offset-sm3>
+                <v-date-picker v-model="date"></v-date-picker>
+              </v-flex>
+            </v-layout>
+
+            <v-layout row>
+              <v-flex xs12 sm6 offset-sm3>
+                <v-time-picker v-model="time" format="24hr"></v-time-picker>
+              </v-flex>
+            </v-layout>
+
+            <v-layout row>
+              <v-flex xs12 sm6 offset-sm3>
+                <v-btn
+                  class="primary"
+                  :disabled="!formIsValid"
+                  type="submit">Create Meetup</v-btn>
+              </v-flex>
+            </v-layout>
+
+          </div>
         </form>
       </v-flex>
     </v-layout>
@@ -133,3 +141,7 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+
+</style>
