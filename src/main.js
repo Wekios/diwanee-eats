@@ -23,7 +23,7 @@ new Vue({
       authDomain: 'diwanee-eats.firebaseapp.com',
       databaseURL: 'https://diwanee-eats.firebaseio.com',
       projectId: 'diwanee-eats',
-      storageBucket: ''
+      storageBucket: 'gs://diwanee-eats.appspot.com'
     })
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
